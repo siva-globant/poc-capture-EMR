@@ -1,4 +1,4 @@
-import Sentry, { BrowserTracing } from "@sentry/react";
+import * as Sentry from "@sentry/react";
 
 import {
   createContext,
@@ -58,7 +58,9 @@ export function MonitoringProvider({
         return breadcrumb;
       },
       integrations: [
-        new BrowserTracing({ tracePropagationTargets: config.tracingOrigins }),
+        new Sentry.BrowserTracing({
+          tracePropagationTargets: config.tracingOrigins,
+        }),
       ],
     });
 
