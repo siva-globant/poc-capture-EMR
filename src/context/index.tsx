@@ -58,6 +58,7 @@ export function MonitoringProvider({
         return breadcrumb;
       },
       integrations: [
+        new Sentry.BrowserProfilingIntegration(),
         new Sentry.BrowserTracing({
           tracePropagationTargets: config.tracingOrigins,
         }),
